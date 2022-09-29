@@ -1,0 +1,5 @@
+*.tiff
+data
+DATASET
+.cache
+__pycache__
