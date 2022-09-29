@@ -1,4 +1,3 @@
-*.tiff
 data
 .cache
 __pycache__
