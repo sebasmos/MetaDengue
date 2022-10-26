@@ -1,6 +1,6 @@
-# MetaDengue
+# DengueSet
 
-MetaDengue is a unified dataset format that combines satellite imagery and Socioeconomical and environmental metadata.
+DengueSet is a unified dataset format that combines satellite imagery and Socioeconomical and environmental metadata.
 
 DengueSet seeks to organize satellite imagery and metadata using a unified and standard dataset, that can be scalable and reproduceable to any geographical area. For this particular project, we have extracted the satellite imagery of the municialities of Colombia from 2016 to 2018 based on the Epiweek using [satellite extractor](https://github.com/sebasmos/satellite.extractor), a proposal based on SentinelHub, and with this proposal we combine Socioeconomical and environmental metadata in JSON files, one for each corresponding image so that the data is temporally and spacially aligned. 
 
@@ -93,9 +93,21 @@ In order to create a customized dataset, please update `config.py` with the corr
 }
 ```
 
-## Download DengueSet *Augmented data with aligned metadata* [Download](https://console.cloud.google.com/storage/browser/colombia_sebasmos/DATASET_augmented/DATASET_augmented_v1/annotations/23001?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&project=mit-hst-dengue&prefix=&forceOnObjectsSortingFiltering=false):
+## Download DengueSet *Augmented data with aligned metadata* [[Download](https://console.cloud.google.com/storage/browser/colombia_sebasmos/DATASET_augmented/DATASET_augmented_v1/annotations/23001?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&project=mit-hst-dengue&prefix=&forceOnObjectsSortingFiltering=false)]:
 Google CLoud Platform bucket storing 10 top cities. . Data extracted using recursive artifact removal, cloud removal based on LeastCC, and Nearest Interpolation for spatial resolution. Implemented [here] and augmentations applied to RGB channels while leaving other satellite channels unchanged:
  
 1. Contrast limited adaptive histogram equalization (CLAHE) - using  clip_limit=6.0 and  tile_grid_size=(16, 16)
 1. RGBShift (applied to 30 pixels per channel with 100 % probability )
 1. RandomBrightnessContrast (applied with a probability of 50% probability)
+
+
+## Dataloder demos
+
+Define custom dataloders in `dataloders/`
+
+1.Tensorflow implementation [[Notebook](https://github.com/sebasmos/MetaDengue/blob/main/TensorFlowDataloders%20demo.ipynb)] 
+      1. Custom dataloader to load all folders within `DATASET/images` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/tfvanilla_dataloader.py)] 
+      1. Custom dataloder to load *filtered* folders within `DATASET/image` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/tffiltered_dataloader.py)]
+1. Pytorch implementation [[Notebeook](https://github.com/sebasmos/MetaDengue/blob/main/PytorchDataloders%20demo.ipynb)]
+      1. Custom dataloader to load all folders within `DATASET/images` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/vanilla_dataloader.py)] 
+      1. Custom dataloder to load *filtered* folders within `DATASET/image` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/filtered_dataloader.py)]
