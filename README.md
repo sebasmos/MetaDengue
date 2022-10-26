@@ -33,14 +33,7 @@ DATASET/
 		500N
 ```
 
-## Download DengueSet *Augmented data with aligned metadata* [Download](https://console.cloud.google.com/storage/browser/colombia_sebasmos/DATASET_augmented/DATASET_augmented_v1/annotations/23001?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&project=mit-hst-dengue&prefix=&forceOnObjectsSortingFiltering=false):
-Google CLoud Platform bucket storing 10 top cities. . Data extracted using recursive artifact removal, cloud removal based on LeastCC, and Nearest Interpolation for spatial resolution. Implemented [here] and augmentations applied to RGB channels while leaving other satellite channels unchanged:
- 
-1. Contrast limited adaptive histogram equalization (CLAHE) - using  clip_limit=6.0 and  tile_grid_size=(16, 16)
-1. RGBShift (applied to 30 pixels per channel with 100 % probability )
-1. RandomBrightnessContrast (applied with a probability of 50% probability)
 
-[
 ## Create metadata dataset.
 
 In order to create a customized dataset, please update `config.py` with the corresponding metadata and adapt `build_dataset.py` as required. For DengueSet case, please run `build_dataset.py`. Afterwards, make sure the `images` folder is stored on the same tree hierarchy as the `annotations/` folder.
@@ -100,3 +93,9 @@ In order to create a customized dataset, please update `config.py` with the corr
 }
 ```
 
+## Download DengueSet *Augmented data with aligned metadata* [Download](https://console.cloud.google.com/storage/browser/colombia_sebasmos/DATASET_augmented/DATASET_augmented_v1/annotations/23001?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&project=mit-hst-dengue&prefix=&forceOnObjectsSortingFiltering=false):
+Google CLoud Platform bucket storing 10 top cities. . Data extracted using recursive artifact removal, cloud removal based on LeastCC, and Nearest Interpolation for spatial resolution. Implemented [here] and augmentations applied to RGB channels while leaving other satellite channels unchanged:
+ 
+1. Contrast limited adaptive histogram equalization (CLAHE) - using  clip_limit=6.0 and  tile_grid_size=(16, 16)
+1. RGBShift (applied to 30 pixels per channel with 100 % probability )
+1. RandomBrightnessContrast (applied with a probability of 50% probability)
