@@ -100,14 +100,16 @@ Google CLoud Platform bucket storing 10 top cities. . Data extracted using recur
 1. RGBShift (applied to 30 pixels per channel with 100 % probability )
 1. RandomBrightnessContrast (applied with a probability of 50% probability)
 
-
 ## Dataloder demos
 
 Define custom dataloders in `dataloders/`
 
-1.Tensorflow implementation [[Notebook](https://github.com/sebasmos/MetaDengue/blob/main/TensorFlowDataloders%20demo.ipynb)] 
-      1. Custom dataloader to load all folders within `DATASET/images` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/tfvanilla_dataloader.py)] 
-      1. Custom dataloder to load *filtered* folders within `DATASET/image` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/tffiltered_dataloader.py)]
-1. Pytorch implementation [[Notebeook](https://github.com/sebasmos/MetaDengue/blob/main/PytorchDataloders%20demo.ipynb)]
-      1. Custom dataloader to load all folders within `DATASET/images` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/vanilla_dataloader.py)] 
-      1. Custom dataloder to load *filtered* folders within `DATASET/image` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/filtered_dataloader.py)]
+Pytorch implementation [[Notebeook](https://github.com/sebasmos/MetaDengue/blob/main/PytorchDataloders%20demo.ipynb)]
+
+1. Custom dataloader to load all folders within `DATASET/images` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/vanilla_dataloader.py)] 
+1. Custom dataloder to load *filtered* folders within `DATASET/image` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/filtered_dataloader.py)]
+      
+
+Tensorflow implementation [[Notebook](https://github.com/sebasmos/MetaDengue/blob/main/TensorFlowDataloders%20demo.ipynb)] 
+1. Custom dataloader to load all folders within `DATASET/images` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/tfvanilla_dataloader.py)]
+1. Custom dataloder to load *filtered* folders within `DATASET/image` folder. [[Here](https://github.com/sebasmos/MetaDengue/blob/main/dataloaders/tffiltered_dataloader.py)]
