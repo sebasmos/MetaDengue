@@ -1,0 +1,48 @@
+{
+      "image_path": "DATASET/images/23001/image_2016-01-03.tiff",
+      "municipality_code": 23001,
+      "date": 201601,
+      "labels": {
+            "cases": 31,
+            "binary_classification": 1,
+            "incidence_rate": 0,
+            "multilabel": 0
+      },
+      "metadata": {
+            "environmental_data": {
+                  "temperature": [
+                        30.703164269355987
+                  ],
+                  "precipitation": [
+                        0.1678038044754522
+                  ],
+                  "elevation": 36.0
+            },
+            "socioeconomic_data": {
+                  "Population": 471724,
+                  "Age0-4(%)": 7.76,
+                  "Age5-14(%)": 26.31,
+                  "Age>30(%)": 48.69,
+                  "AfrocolombianPopulation(%)": 1.7,
+                  "IndianPopulation(%)": 0.71,
+                  "PeoplewithDisabilities(%)": 2.69,
+                  "Peoplewhocannotreadorwrite(%)": 5.93,
+                  "Secondary/HigherEducation(%)": 59.93,
+                  "Employedpopulation(%)": 36.46,
+                  "Unemployedpopulation(%)": 4.61,
+                  "Peopledoinghousework(%)": 17.02,
+                  "Men(%)": 48.51,
+                  "Women(%)": 51.49,
+                  "Householdswithoutwateraccess(%)": 10.07,
+                  "Householdswithoutinternetaccess(%)": 52.84,
+                  "Buildingstratification1(%)": 60.2975,
+                  "Buildingstratification2(%)": 14.4266,
+                  "Buildingstratification3(%)": 6.6937,
+                  "Buildingstratification4(%)": 2.3756,
+                  "Buildingstratification5(%)": 0.8777,
+                  "Buildingstratification6(%)": 0.7190000000000001,
+                  "NumberofhospitalsperKm2": 0.087552,
+                  "NumberofhousesperKm2": 37.051894
+            }
+      }
+}
