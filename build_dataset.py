@@ -134,8 +134,8 @@ def run():
                                         "labels" :{
                                                     "cases": (np.array(row["cases" + "_" + str(int(code))])).tolist()[0], # how to get the index, given that we have the column and the the date
                                                     "binary_classification":cases_bin,
-                                                    "incidence_rate": cases_incidence,
-                                                    "multilabel": cases_multiclass_labels
+                                                    #"incidence_rate": cases_incidence,
+                                                    "multiclass": cases_multiclass_labels
                                         },
                                         "metadata":
                                                     {

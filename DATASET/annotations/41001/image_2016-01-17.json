@@ -5,8 +5,7 @@
       "labels": {
             "cases": 58,
             "binary_classification": 1,
-            "incidence_rate": 0,
-            "multilabel": 1
+            "multiclass": 1
       },
       "metadata": {
             "environmental_data": {
