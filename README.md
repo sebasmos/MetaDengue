@@ -50,8 +50,7 @@ In order to create a customized dataset, please update `config.py` with the corr
       "labels": {
             "cases": 27,
             "binary_classification": 0,
-            "incidence_ratio": 0,
-            "multilabel": 0
+            "multiclass": 0
       },
       "metadata": {
             "environmental_data": {
