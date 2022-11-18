@@ -46,9 +46,9 @@ In order to create a customized dataset, please update `config.py` with the corr
       {
       "image_path": "DATASET/images/50001/image_2016-01-03.tiff",
       "municipality_code": 50001,
-      "date": 201601,
+      "epiweek": 201601,
+      "cases": 23,
       "labels": {
-            "cases": 27,
             "binary_classification": 0,
             "multiclass": 0
       },
