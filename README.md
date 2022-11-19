@@ -42,51 +42,58 @@ In order to create a customized dataset, please update `config.py` with the corr
 ## Metadata organization: 
 
 ```
-{ 
-      {
-      "image_path": "DATASET/images/50001/image_2016-01-03.tiff",
-      "municipality_code": 50001,
+{
+      "image_path": "DATASET/images/23001/image_2016-01-03.tiff",
+      "municipality_code": 23001,
       "epiweek": 201601,
-      "cases": 23,
-      "labels": {
-            "binary_classification": 0,
-            "multiclass": 0
-      },
-      "metadata": {
-            "environmental_data": {
+      "dynamic": {
+            "cases": {
+                  "dengue_cases": 31,
+                  "binary_classification": 1,
+                  "multiclass_classification": 0
+            },
+            "environmental_data":{
                   "temperature": [
-                        29.906313774134105
+                        30.703164269355987
                   ],
                   "precipitation": [
-                        0.0346768693251678
-                  ],
-                  "elevation": 323.0
+                        0.1678038044754522
+                  ]
+            }
+      },
+      "static": {
+            "environmental_data": {
+                  "elevation": 36.0
             },
-            "socioeconomic_data": {
-                  "Population": 512787,
-                  "Age0-4(%)": 6.82,
-                  "Age5-14(%)": 26.75,
-                  "Age>30(%)": 50.63,
-                  "AfrocolombianPopulation(%)": 0.93,
-                  "IndianPopulation(%)": 0.36,
-                  "PeoplewithDisabilities(%)": 4.33,
-                  "Peoplewhocannotreadorwrite(%)": 3.22,
-                  "Secondary/HigherEducation(%)": 62.3,
-                  "Employedpopulation(%)": 40.08,
-                  "Unemployedpopulation(%)": 5.75,
-                  "Peopledoinghousework(%)": 12.71,
-                  "Men(%)": 49.33,
-                  "Women(%)": 50.67,
-                  "Householdswithoutwateraccess(%)": 5.99,
-                  "Householdswithoutinternetaccess(%)": 36.51,
-                  "Buildingstratification1(%)": 21.672,
-                  "Buildingstratification2(%)": 21.0672,
-                  "Buildingstratification3(%)": 27.9166,
-                  "Buildingstratification4(%)": 3.6941,
-                  "Buildingstratification5(%)": 1.5769,
-                  "Buildingstratification6(%)": 0.4983,
-                  "NumberofhospitalsperKm2": 0.173648,
-                  "NumberofhousesperKm2": 111.006093
+            "socio_economic_demographic_data": {
+                  "socio_economic_data":{
+                        "Secondary/HigherEducation(%)": 59.93,
+                        "Employedpopulation(%)": 36.46,
+                        "Unemployedpopulation(%)": 4.61,
+                        "Peopledoinghousework(%)": 17.02,
+                        "Householdswithoutwateraccess(%)": 10.07,
+                        "Householdswithoutinternetaccess(%)": 52.84,
+                        "Buildingstratification1(%)": 60.2975,
+                        "Buildingstratification2(%)": 14.4266,
+                        "Buildingstratification3(%)": 6.6937,
+                        "Buildingstratification4(%)": 2.3756,
+                        "Buildingstratification5(%)": 0.8777,
+                        "Buildingstratification6(%)": 0.7190000000000001,
+                        "NumberofhospitalsperKm2": 0.087552,
+                        "NumberofhousesperKm2": 37.051894
+                  },
+                  "socio_demographic_data":{
+                        "Age0-4(%)": 7.76,
+                        "Age5-14(%)": 26.31,
+                        "Age>30(%)": 48.69,
+                        "Men(%)": 48.51,
+                        "Women(%)": 51.49,
+                        "Population per year": 471724,
+                        "AfrocolombianPopulation(%)": 1.7,
+                        "IndianPopulation(%)": 0.71,
+                        "Peoplewhocannotreadorwrite(%)": 5.93,
+                        "PeoplewithDisabilities(%)": 2.69
+                  }
             }
       }
 }
