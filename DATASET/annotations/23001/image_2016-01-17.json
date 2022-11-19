@@ -1,24 +1,30 @@
 {
       "image_path": "DATASET/images/23001/image_2016-01-17.tiff",
       "municipality_code": 23001,
-      "date": 201603,
-      "labels": {
-            "cases": 30,
-            "binary_classification": 1,
-            "multiclass": 0
-      },
-      "metadata": {
+      "epiweeks": 201603,
+      "dynamic": {
+            "cases": {
+                  "dengue_cases": 30,
+                  "binary_classification": 1,
+                  "multiclass": 0
+            },
             "environmental_data": {
                   "temperature": [
                         32.85598934314968
                   ],
                   "precipitation": [
                         0.004444298546711
-                  ],
+                  ]
+            },
+            "socioeconomic_data": {
+                  "Population": 471724
+            }
+      },
+      "static": {
+            "environmental_data": {
                   "elevation": 36.0
             },
             "socioeconomic_data": {
-                  "Population": 471724,
                   "Age0-4(%)": 7.76,
                   "Age5-14(%)": 26.31,
                   "Age>30(%)": 48.69,

@@ -1,24 +1,30 @@
 {
       "image_path": "DATASET/images/50001/image_2016-01-03.tiff",
       "municipality_code": 50001,
-      "date": 201601,
-      "labels": {
-            "cases": 27,
-            "binary_classification": 0,
-            "multiclass": 0
-      },
-      "metadata": {
+      "epiweeks": 201601,
+      "dynamic": {
+            "cases": {
+                  "dengue_cases": 27,
+                  "binary_classification": 0,
+                  "multiclass": 0
+            },
             "environmental_data": {
                   "temperature": [
                         29.906313774134105
                   ],
                   "precipitation": [
                         0.0346768693251678
-                  ],
+                  ]
+            },
+            "socioeconomic_data": {
+                  "Population": 512787
+            }
+      },
+      "static": {
+            "environmental_data": {
                   "elevation": 323.0
             },
             "socioeconomic_data": {
-                  "Population": 512787,
                   "Age0-4(%)": 6.82,
                   "Age5-14(%)": 26.75,
                   "Age>30(%)": 50.63,

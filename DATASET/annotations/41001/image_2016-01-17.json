@@ -1,24 +1,30 @@
 {
       "image_path": "DATASET/images/41001/image_2016-01-17.tiff",
       "municipality_code": 41001,
-      "date": 201603,
-      "labels": {
-            "cases": 58,
-            "binary_classification": 1,
-            "multiclass": 1
-      },
-      "metadata": {
+      "epiweeks": 201603,
+      "dynamic": {
+            "cases": {
+                  "dengue_cases": 58,
+                  "binary_classification": 1,
+                  "multiclass": 1
+            },
             "environmental_data": {
                   "temperature": [
                         24.13210414545745
                   ],
                   "precipitation": [
                         0.0083388899006922
-                  ],
+                  ]
+            },
+            "socioeconomic_data": {
+                  "Population": 351933
+            }
+      },
+      "static": {
+            "environmental_data": {
                   "elevation": 460.0
             },
             "socioeconomic_data": {
-                  "Population": 351933,
                   "Age0-4(%)": 7.33,
                   "Age5-14(%)": 25.62,
                   "Age>30(%)": 51.86,
