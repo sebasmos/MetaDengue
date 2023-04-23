@@ -4,6 +4,8 @@ MetaDengue is a unified dataset format that combines satellite imagery and Socio
 
 DengueSet seeks to organize satellite imagery and metadata using a unified and standard dataset, that can be scalable and reproduceable to any geographical area. For this particular project, we have extracted the satellite imagery of the municialities of Colombia from 2016 to 2018 based on the Epiweek using [satellite extractor](https://github.com/sebasmos/satellite.extractor), a proposal based on SentinelHub, and with this proposal we combine Socioeconomical and environmental metadata in JSON files, one for each corresponding image so that the data is temporally and spacially aligned. 
 
+Find the full open-opensource datasets in HuggingFace: [Link](https://huggingface.co/MITCriticalData)
+
 
 ## Proposed Structure 
 
