@@ -1,6 +1,6 @@
 data
 .cache
 __pycache__/
-*.tiff
-**/.tiff
+#*.tiff
+#**/.tiff
 
