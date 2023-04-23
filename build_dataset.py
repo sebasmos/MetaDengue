@@ -7,9 +7,9 @@ from epiweeks import Week
 from datetime import date as convert_to_date
 import numpy as np
 import config
+import shutil
 
-
-def create_dataset(root):
+def create_dataset(root, source):
     """
     This function creates DATASET/ and annotations/ folder.  
     
@@ -17,6 +17,8 @@ def create_dataset(root):
 
         root(string) - path to dataset folder
     """
+    dest = os.path.join(root, "images")
+    shutil.copytree(source, dest)    
     os.makedirs(os.path.join(root, "annotations"), exist_ok=True)
 
 def get_epiweek(image_name):
@@ -60,7 +62,8 @@ def get_label(path):
 
 def run():
     root = config.root
-    create_dataset(root)
+    source = config.source
+    create_dataset(root, source)
     climatic_data_path = config.climatic_data_path
     socioeco_data_path = config.socioeco_data_path
     binary_classification = config.binary_classification
@@ -74,15 +77,17 @@ def run():
     multiclass_labels = pd.read_csv(multiclass_labels)
     # We select indexes 468-624 to filter based on Satellite images availabilty: image_2016-01-01 - 2018-12-23
     data = data[468:624].reset_index(drop=True)
+
     # Create data folder
     f = []
-    for (dirpath, dirnames, filenames) in walk(os.path.join(root, "images")):
+    for (dirpath, dirnames, filenames) in walk(source):
         f.append(dirnames)
         #print(dirnames)#, dirnames, filenames)
         break
+    print(f"Collected data for processing: ", f[0])
     for idx in range(0,len(f[0])): # getting 1 image for 1 epiweek
-        folder = os.path.join(root, "images", f[0][idx])
-        code_per_image = int( f[0][idx])
+        folder = os.path.join(source, f[0][idx])
+        code_per_image = int(f[0][idx])
         folder_name = f[0][idx]
         images = os.listdir(folder)
         for img in images:     
@@ -183,7 +188,7 @@ def run():
                             print(json.dumps(annotation))
                             json.dump(annotation, out_file, indent=6) 
                             out_file.close()
-
     print("Done.")
+
 
 run()
