@@ -135,22 +135,28 @@ def run():
                             annotation = {
                                         "image_path": image_path,
                                         "municipality_code": code,
-                                        "date": date_img,
-                                        "labels" :{
-                                                    "cases": (np.array(row["cases" + "_" + str(int(code))])).tolist()[0], # how to get the index, given that we have the column and the the date
-                                                    "binary_classification":cases_bin,
-                                                    #"incidence_rate": cases_incidence,
-                                                    "multiclass": cases_multiclass_labels
-                                        },
-                                        "metadata":
-                                                    {
+                                        "epiweeks": date_img,
+                                        "dynamic":{
+                                                    "cases" :{
+                                                                "dengue_cases": (np.array(row["cases" + "_" + str(int(code))])).tolist()[0], # how to get the index, given that we have the column and the the date
+                                                                "binary_classification":cases_bin,
+                                                                #"incidence_rate": cases_incidence,
+                                                                "multiclass": cases_multiclass_labels,
+                                                    },
                                                     "environmental_data": { "temperature": (np.array(row["temperature" + "_" + str(code)]).tolist()),
                                                                             "precipitation": (np.array(row["precipitation" + "_" + str(code)])).tolist(),
+                                                                          },
+                                                    "socioeconomic_data":{
+                                                                            "Population": [int(socioeco_row[name]) if name in socioeco_row.columns else 0][0],
+                                                    }
+                                        },
+                                        "static":
+                                                    {
+                                                    "environmental_data": {
                                                                             "elevation": float(socioeco_row["Elevation"])
                                                                           },
-                                                    "socioeconomic_data": {
 
-                                                                            "Population": [int(socioeco_row[name]) if name in socioeco_row.columns else 0][0],
+                                                    "socioeconomic_data": {
                                                                             "Age0-4(%)": float(socioeco_row["Age0-4(%)"]),
                                                                             'Age5-14(%)':float(socioeco_row["Age15-29(%)"]),
                                                                             'Age>30(%)':float(socioeco_row["Age>30(%)"]),

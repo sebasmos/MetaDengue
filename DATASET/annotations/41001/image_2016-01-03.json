@@ -1,0 +1,53 @@
+{
+      "image_path": "DATASET/images/41001/image_2016-01-03.tiff",
+      "municipality_code": 41001,
+      "epiweeks": 201601,
+      "dynamic": {
+            "cases": {
+                  "dengue_cases": 63,
+                  "binary_classification": 1,
+                  "multiclass": 0
+            },
+            "environmental_data": {
+                  "temperature": [
+                        27.47078427209743
+                  ],
+                  "precipitation": [
+                        5.705897276864907
+                  ]
+            },
+            "socioeconomic_data": {
+                  "Population": 351933
+            }
+      },
+      "static": {
+            "environmental_data": {
+                  "elevation": 460.0
+            },
+            "socioeconomic_data": {
+                  "Age0-4(%)": 7.33,
+                  "Age5-14(%)": 25.62,
+                  "Age>30(%)": 51.86,
+                  "AfrocolombianPopulation(%)": 0.63,
+                  "IndianPopulation(%)": 0.32,
+                  "PeoplewithDisabilities(%)": 7.9,
+                  "Peoplewhocannotreadorwrite(%)": 4.0,
+                  "Secondary/HigherEducation(%)": 62.42,
+                  "Employedpopulation(%)": 38.83,
+                  "Unemployedpopulation(%)": 5.54,
+                  "Peopledoinghousework(%)": 14.72,
+                  "Men(%)": 47.86,
+                  "Women(%)": 52.14,
+                  "Householdswithoutwateraccess(%)": 2.44,
+                  "Householdswithoutinternetaccess(%)": 33.99,
+                  "Buildingstratification1(%)": 23.1001,
+                  "Buildingstratification2(%)": 38.5433,
+                  "Buildingstratification3(%)": 8.2185,
+                  "Buildingstratification4(%)": 4.0139,
+                  "Buildingstratification5(%)": 0.8625,
+                  "Buildingstratification6(%)": 0.0719,
+                  "NumberofhospitalsperKm2": 0.10367,
+                  "NumberofhousesperKm2": 63.426272
+            }
+      }
+}
