@@ -1,7 +1,7 @@
 # config.py
 
-dataset_new_name = "SAT1_dataset_5_top_cities"
-source  = "/home/sebasmos/Documents/DATASETS/DATASET_5_best_cities"
+dataset_new_name = "SAT3_FULL_COLOMBIA"
+source  = "/home/sebasmos/Documents/DATASETS/DATASETS_huggingface/SAT3_FULL_COLOMBIA/images"
 root = "/home/sebasmos/Desktop/MetaDengue/"+dataset_new_name
 json_test = "/home/sebasmos/Desktop/MetaDengue/" 
 climatic_data_path = "./data/Climatic_and_cases_data_Top10.csv"

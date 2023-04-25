@@ -8,6 +8,8 @@ from datetime import date as convert_to_date
 import numpy as np
 import config
 import shutil
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def create_dataset(root, source):
     """
@@ -76,25 +78,28 @@ def run():
     incidence_ratio = pd.read_csv(incidence_ratio)
     multiclass_labels = pd.read_csv(multiclass_labels)
     # We select indexes 468-624 to filter based on Satellite images availabilty: image_2016-01-01 - 2018-12-23
+    # 459-624 to inclide since 2015-11-1
     data = data[468:624].reset_index(drop=True)
 
     # Create data folder
-    f = []
-    for (dirpath, dirnames, filenames) in walk(source):
-        f.append(dirnames)
-        #print(dirnames)#, dirnames, filenames)
-        break
-    print(f"Collected data for processing: ", f[0])
-    for idx in range(0,len(f[0])): # getting 1 image for 1 epiweek
-        folder = os.path.join(source, f[0][idx])
-        code_per_image = int(f[0][idx])
-        folder_name = f[0][idx]
-        images = os.listdir(folder)
+    f = os.listdir(source)
+
+    print(f"Collected data for processing: ", f)
+    for idx in range(0,len(f)): # getting 1 image for 1 epiweek
+        folder = os.path.join(source, f[idx])
+        code_per_image = int(f[idx])
+        print(f"Processing municipality {code_per_image}")
+        folder_name = f[idx]
+        images = sorted(os.listdir(folder))
+        counter = 0
+        counter_bv = 0
         for img in images:     
+            counter_bv +=1
             image_path  = os.path.join("DATASET", "images", folder_name, img)
             date_img = get_epiweek(img) # image date
             date_csv = [get_epiweek(date) for date in data.date]
             data["indexer"] = date_csv
+            print(f"{counter}/{len(images)}")
             if date_img in date_csv:
                 # Number of cases and environmental data
                 row = data[data["indexer"]==date_img]
@@ -106,24 +111,22 @@ def run():
                 col_multiclass_cases = multiclass_labels[["Municipality code", str(date_img)]]  
                 # 
                 full_codes= row.columns
+                
                 for e in full_codes:
                     name = e.split("_")[0]
                     if len(e.split("_"))>1:
                         code = int(e.split("_")[1])
-                        if len(str(code))<5:
-                            code = "0"+ str(code)
-                        if code == code_per_image:  
-                            print("CODE: ", code)  
+                        if code == code_per_image: 
                             ####  Obtain socio-Economical data - Downsampling because data is per-year-sampled :/
                             socioeco_row = socioeco_data[socioeco_data["Municipality code"]==code]
                             year = int(str(date_img)[:4]) # Only obtain year to downsample with it
                             name = "Population"+str(year)
                             #### Binary cases
-                            cases_bin = int(col_bin_cases[col_bin_cases["Municipality code"]==code][str(date_img)])
+                            cases_bin = int(col_bin_cases[col_bin_cases["Municipality code"]==int(code)][str(date_img)])
                             #### Incidence ratio
-                            cases_incidence = int(col_incidence_ratio_cases[col_incidence_ratio_cases["Municipality code"]==code][str(date_img)])
+                            cases_incidence = int(col_incidence_ratio_cases[col_incidence_ratio_cases["Municipality code"]==int(code)][str(date_img)])
                             #### Multi-label
-                            cases_multiclass_labels = int(col_multiclass_cases[col_multiclass_cases["Municipality code"]==code][str(date_img)])
+                            cases_multiclass_labels = int(col_multiclass_cases[col_multiclass_cases["Municipality code"]==int(code)][str(date_img)])
                 
                             ## Create JSON file
                             anns_folder = os.path.join(root, "annotations", folder_name)
@@ -131,10 +134,14 @@ def run():
                             
                             anns_path = os.path.join(root, anns_folder, image_path.split("/")[-1:][0][:-5] + ".json")
 
-                            out_file = open(anns_path, "w")       
+                            out_file = open(anns_path, "w")  
+                            if len(str(code))<5:
+                                code = "0"+ str(code)
+                            counter+=1
+                            #assert counter_bv ==counter, "Different fectchers"
                             annotation = {
                                         "image_path": image_path,
-                                        "municipality_code": code,
+                                        "municipality_code": int(code),
                                         "epiweeks": date_img,
                                         "dynamic":{
                                                     "cases" :{
@@ -185,9 +192,13 @@ def run():
                                                     }
                                         }
                             
-                            print(json.dumps(annotation))
+                        
+
+                            #print(json.dumps(annotation))
                             json.dump(annotation, out_file, indent=6) 
+                            
                             out_file.close()
+    #assert counter == len(images)
     print("Done.")
 
 
