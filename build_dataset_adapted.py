@@ -99,15 +99,14 @@ def run():
             continue
 
         code_per_image = int(f[idx])
-        print(f"Processing municipality {code_per_image}")
+        # print(f"Processing municipality {code_per_image}")
         folder_name = f[idx]
         images = sorted(os.listdir(folder))
         counter = 0
         counter_bv = 0
         for img in images:     
             counter_bv +=1
-            image_path  = os.path.join("DATASET", "images", folder_name, img)
-            # import pdb;pdb.set_trace()
+            image_path = os.path.join("DATASET", "images", folder_name, img)
             date_img = get_epiweek(img, numeric = True) # image date
             date_csv = [get_epiweek(date, numeric = False) for date in data.date]
             data["indexer"] = date_csv
@@ -129,6 +128,7 @@ def run():
                     if len(e.split("_"))>1:
                         code = int(e.split("_")[1])
                         if code == code_per_image: 
+                            # print(code)
                             ####  Obtain socio-Economical data - Downsampling because data is per-year-sampled :/
                             socioeco_row = socioeco_data[socioeco_data["Municipality code"]==code]
                             year = int(str(date_img)[:4]) # Only obtain year to downsample with it
@@ -143,7 +143,7 @@ def run():
                             ## Create JSON file
                             anns_folder = os.path.join(root, "annotations", folder_name)
                             os.makedirs(anns_folder, exist_ok=True)
-                            
+                            # import pdb;pdb.set_trace()
                             anns_path = os.path.join(root, anns_folder, image_path.split("/")[-1:][0][:-5] + ".json")
 
                             out_file = open(anns_path, "w")  
@@ -203,9 +203,6 @@ def run():
                                                                            }
                                                     }
                                         }
-                            
-                        
-
                             json.dump(annotation, out_file, indent=6) 
                             out_file.close()
     print("Done.")
