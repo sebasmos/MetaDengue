@@ -6,6 +6,9 @@ DengueSet seeks to organize satellite imagery and metadata using a unified and s
 
 Find the full open-opensource datasets in HuggingFace: [Link](https://huggingface.co/MITCriticalData)
 
+## Updates
+
+* `build_dataset_adapted.py` is designed for the version 2.0 from the dataset. The name of the images contain the numeric code of each municipality instead of the prefix "image" 
 
 ## Proposed Structure 
 
